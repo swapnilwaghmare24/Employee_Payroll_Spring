@@ -35,6 +35,7 @@ public class EmployeePayrollService {
 		data.setProfile(eData.getProfile());
 		data.setDepartment(eData.getDepartment());
 		data.setGender(eData.getGender());
+		data.setDate(eData.getDate());
 		data.setSalary(eData.getSalary());
 		data.setNote(eData.getNote());
 		return repo.save(data);
