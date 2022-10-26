@@ -22,7 +22,8 @@ public class EmployeePayrollController {
 	@PostMapping("/addemp")
 	public EmployeeData addEmp(@RequestBody EmployeeData data)
 	{
-		return service.addEmp(data);
+		EmployeeData eData=new EmployeeData(data);
+		return service.addEmp(eData);
 		
 	}
 	@GetMapping("/getallemp")
@@ -45,8 +46,9 @@ public class EmployeePayrollController {
 	}
 	
 	@PutMapping("/id/{id}")
-	public EmployeeData updateEmpById(@PathVariable int id, @RequestBody EmployeeData eData)
+	public EmployeeData updateEmpById(@PathVariable int id, @RequestBody EmployeeData data)
 	{
+		EmployeeData eData=new EmployeeData(data);
 		return service.updateById(id,eData);
 	}
 	

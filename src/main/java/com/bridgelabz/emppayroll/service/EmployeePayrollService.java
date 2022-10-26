@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bridgelabz.emppayroll.model.EmployeeData;
 import com.bridgelabz.emppayroll.repository.EmployeePayrollRepo;
 @Service
-public class EmployeePayrollService {
+public class EmployeePayrollService implements IEmployeeService {
 	@Autowired
 	EmployeePayrollRepo repo;
 

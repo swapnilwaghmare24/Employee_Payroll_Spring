@@ -36,6 +36,7 @@ public class EmployeeData {
 	}
 	public EmployeeData(EmployeeData employeeData) {
 		this.id=employeeData.id;
+		this.name=employeeData.name;
 		this.profile=employeeData.profile;
 		this.gender=employeeData.gender;
 		this.department=employeeData.department;
