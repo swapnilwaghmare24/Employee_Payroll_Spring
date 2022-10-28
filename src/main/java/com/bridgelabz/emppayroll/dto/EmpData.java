@@ -2,87 +2,33 @@ package com.bridgelabz.emppayroll.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class EmpData {
-	
+	@Pattern(regexp = "^[A-Z]{1}[a-z]{2,}",message = "Invalid Name")
 	private String name;
+	@NotBlank(message = "Profile should not blank")
 	private String profile;
+	@NotNull(message = "please select gender")
 	private String gender;
+	@NotNull(message = "please select date")
 	private LocalDate date;
+	@NotBlank(message = "please select department")
 	private String department;
+	@Min(300000)
+	@Max(600000)
 	private long salary;
 	private String note;
-	public EmpData() {
-		super();
-	}
-	public EmpData(String name, String profile, String gender, LocalDate date, String department, long salary,
-			String note) {
-		super();
-		this.name = name;
-		this.profile = profile;
-		this.gender = gender;
-		this.date = date;
-		this.department = department;
-		this.salary = salary;
-		this.note = note;
-	}
 	
-	public EmpData(EmpData empData) {
-		this.name=empData.name;
-		this.profile=empData.profile;
-		this.gender=empData.gender;
-		this.department=empData.department;
-		this.salary=empData.salary;
-		this.note=empData.note;
-		this.date=empData.date;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getProfile() {
-		return profile;
-	}
-	public void setProfile(String profile) {
-		this.profile = profile;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	public LocalDate getDate() {
-		return date;
-	}
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-	public String getDepartment() {
-		return department;
-	}
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-	public long getSalary() {
-		return salary;
-	}
-	public void setSalary(long salary) {
-		this.salary = salary;
-	}
-	public String getNote() {
-		return note;
-	}
-	public void setNote(String note) {
-		this.note = note;
-	}
-	@Override
-	public String toString() {
-		return "EmpData [name=" + name + ", profile=" + profile + ", gender=" + gender + ", date=" + date
-				+ ", department=" + department + ", salary=" + salary + ", note=" + note + "]";
-	}
-	
-	
-
 }
