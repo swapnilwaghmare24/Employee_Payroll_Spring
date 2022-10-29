@@ -23,4 +23,11 @@ public class EmployeePayrollExceptionHandler {
 	        ResponseDto responseDTO = new ResponseDto("Exception found : ",errorMessage);
 	        return new ResponseEntity<>(responseDTO, HttpStatus.BAD_REQUEST);
 	    }
+	 
+	 @ExceptionHandler(EmployeePayrollException.class)
+	    public ResponseEntity<ResponseDto> handleEmployeePayrollException(EmployeePayrollException exception) {
+	        ResponseDto responseDTO = new ResponseDto("Exception found : ", exception.getMessage());
+	        return new ResponseEntity<>(responseDTO, HttpStatus.BAD_REQUEST);
+	    }
+
 }

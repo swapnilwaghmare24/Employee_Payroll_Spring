@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bridgelabz.emppayroll.dto.EmpData;
+import com.bridgelabz.emppayroll.exceptions.EmployeePayrollException;
 import com.bridgelabz.emppayroll.model.EmployeeData;
 import com.bridgelabz.emppayroll.repository.EmployeePayrollRepo;
 @Service
@@ -23,7 +24,7 @@ public class EmployeePayrollService implements IEmployeeService {
 	}
 
 	public EmployeeData getEmpById(int id) {
-		return repo.findById(id).get();
+		return repo.findById(id).orElseThrow(()-> new EmployeePayrollException("Employee ID is Invalid"));
 	}
 
 	public void deleteById(int id) {
