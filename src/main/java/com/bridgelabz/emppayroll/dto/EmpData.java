@@ -1,6 +1,7 @@
 package com.bridgelabz.emppayroll.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,11 +25,12 @@ public class EmpData {
 	private String gender;
 	@NotNull(message = "please select date")
 	private LocalDate date;
-	@NotBlank(message = "please select department")
-	private String department;
 	@Min(300000)
 	@Max(600000)
 	private long salary;
 	private String note;
+	
+	@NotNull(message="Department should not be empty")
+    private List<String> departments;
 	
 }

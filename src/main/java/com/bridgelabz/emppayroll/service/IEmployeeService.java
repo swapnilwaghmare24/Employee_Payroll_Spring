@@ -12,5 +12,6 @@ public interface IEmployeeService {
 	public EmployeeData getEmpById(int id);
 	public void deleteById(int id);
 	public EmployeeData updateById(int id, EmpData eData);
+	public List<EmployeeData> getEmployeesByDepartment(String department);
 
 }

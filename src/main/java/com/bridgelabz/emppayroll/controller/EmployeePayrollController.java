@@ -2,6 +2,7 @@ package com.bridgelabz.emppayroll.controller;
 
 import java.util.List;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,5 +67,11 @@ public class EmployeePayrollController {
         return new ResponseEntity<ResponseDto>(resp, HttpStatus.OK);
 	}
 	
+	@GetMapping("/department/{department}")
+    public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("department") String department){
+        List<EmployeeData> empDataList = service.getEmployeesByDepartment(department);
+        ResponseDto responseDTO = new ResponseDto("Get Call For ID Department Successful",empDataList);
+        return new ResponseEntity<ResponseDto>(responseDTO,HttpStatus.OK);
+    }
 
 }

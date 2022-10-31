@@ -35,13 +35,17 @@ public class EmployeePayrollService implements IEmployeeService {
 		EmployeeData data=repo.findById(id).get();
 		data.setName(eData.getName());
 		data.setProfile(eData.getProfile());
-		data.setDepartment(eData.getDepartment());
 		data.setGender(eData.getGender());
+		data.setDepartments(eData.getDepartments());
 		data.setDate(eData.getDate());
 		data.setSalary(eData.getSalary());
 		data.setNote(eData.getNote());
 		return repo.save(data);
 	    
 	    }
+
+	public List<EmployeeData> getEmployeesByDepartment(String department) {
+		return repo.findEmployeesByDepartment((department));
+	}
 
 }
